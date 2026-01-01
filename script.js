@@ -1,7 +1,9 @@
+// Define colors constant for reuse
+const CELEBRATION_COLORS = ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff', '#00ffff', '#ffa500', '#ff1493'];
+
 // Create initial ambient fireworks
 function createFirework(x, y) {
     const fireworksContainer = document.querySelector('.fireworks');
-    const colors = ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff', '#00ffff', '#ffa500', '#ff1493'];
     
     for (let i = 0; i < 30; i++) {
         const firework = document.createElement('div');
@@ -14,7 +16,7 @@ function createFirework(x, y) {
         
         firework.style.left = x + 'px';
         firework.style.top = y + 'px';
-        firework.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        firework.style.backgroundColor = CELEBRATION_COLORS[Math.floor(Math.random() * CELEBRATION_COLORS.length)];
         firework.style.setProperty('--tx', tx + 'px');
         firework.style.setProperty('--ty', ty + 'px');
         
@@ -29,7 +31,6 @@ function createFirework(x, y) {
 // Create confetti
 function createConfetti() {
     const fireworksContainer = document.querySelector('.fireworks');
-    const colors = ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff', '#00ffff', '#ffa500', '#ff1493'];
     
     for (let i = 0; i < 50; i++) {
         setTimeout(() => {
@@ -37,7 +38,7 @@ function createConfetti() {
             confetti.className = 'confetti';
             confetti.style.left = Math.random() * 100 + '%';
             confetti.style.top = '-10px';
-            confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+            confetti.style.backgroundColor = CELEBRATION_COLORS[Math.floor(Math.random() * CELEBRATION_COLORS.length)];
             confetti.style.animationDelay = Math.random() * 0.5 + 's';
             
             fireworksContainer.appendChild(confetti);
